@@ -1,0 +1,199 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Person API",
+    "description": "API for Managing People",
+    "version": "1.0.0"
+  },
+  "produces": ["application/json"],
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "person",
+      "description": "Person"
+    }
+  ],
+  "paths": {
+    "/person": {
+      "get": {
+        "tags": [
+          "person"
+        ],
+        "x-swagger-router-controller": "person",
+        "operationId": "GET",
+        "description": "Returns a list of persons",
+        "responses": {
+          "200": {
+            "description": "Person list",
+            "schema": {
+              "$ref": "#/definitions/Person"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "person"
+        ],
+        "x-swagger-router-controller": "person",
+        "operationId": "POST",
+        "description": "Create person",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The person details",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Person"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Newly created person",
+            "schema": {
+              "$ref": "#/definitions/Person"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    },
+    "/person/{id}": {
+      "get": {
+        "tags": [
+          "person"
+        ],
+        "x-swagger-router-controller": "person",
+        "operationId": "GET",
+        "description": "Fetch a person",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The person ID to fetch",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Person details",
+            "schema": {
+              "$ref": "#/definitions/Person"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "person"
+        ],
+        "x-swagger-router-controller": "person",
+        "operationId": "PUT",
+        "description": "Update a person",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The person ID to update",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "The person details for the update",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Person"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Updated person details",
+            "schema": {
+              "$ref": "#/definitions/Person"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "$ref": "#/definitions/Error"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Error": {
+      "required": ["code", "message"],
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "Success": {
+      "required": ["code", "message"],
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    },
+    "Person": {
+      "required": ["name"],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "permissions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+                "finance",
+                "accounts",
+                "sales",
+                "leads"
+            ]
+          },
+          "uniqueItems": true
+        }
+      }
+    }
+  }
+}
