@@ -9,11 +9,11 @@ function GET(req, res, next){
   }else{
     Model.findOne(req.params, function findOneCb(err, doc){
       if(err){
-        res.status(500).send();
+        next(err);
       }else if(doc){
         res.status(200).json(doc);
       }else{
-        res.status(404).send();
+        next();
       }
     });
   }
@@ -24,7 +24,7 @@ function POST(req, res, next){
   var doc = new M(req.body);
   doc.save(function saveCb(err){
     if(err){
-      res.status(500).send();
+      next(err);
     }else{
       res.status(201).json(doc);
     }
@@ -34,7 +34,7 @@ function POST(req, res, next){
 function PUT(req, res, next){
   Model.update(req.swagger.params, req.body, function updateCb(err){
     if(err){
-      res.status(500).send();
+      next(err);
     }else{
       res.status(200).json(req.body);
     }
@@ -44,7 +44,7 @@ function PUT(req, res, next){
 function DEL(req, res, next){
   Model.remove(req.params, function removeCb(err){
     if(err){
-      res.status(500).send();
+      next(err);
     }else{
       res.status(200).json();
     }

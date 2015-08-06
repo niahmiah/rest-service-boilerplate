@@ -1,6 +1,6 @@
 # REST Service Boilerplate
 
-A boilerplate project for REST Services using Node.js, Express, swagger-tools, and Mongoose
+A boilerplate project for scalable REST Services using Node.js, Express, Mongoose, PM2, and Swagger
 
 ## Inspiration
 
@@ -12,6 +12,9 @@ There is usually a lot of redundancy in creating a new RESTful API. You create e
 - Generates express routes using swaggerRouter middleware from [swagger-tools](https://github.com/apigee-127/swagger-tools)
 - Validation of requests and responses using swaggerValidator middleware from [swagger-tools](https://github.com/apigee-127/swagger-tools)
 - Generates Mongoose schemas from Swagger document using [swagger2mongoose](https://github.com/niahmiah/swagger2mongoose)
+- Uses [PM2] (https://github.com/Unitech/pm2) for process management. Scales the service to multiple CPUs. Allows zero downtime reloads.
+- Uses [Winston] (https://github.com/winstonjs/winston) logger
+- Uses [config] (https://github.com/lorenwest/node-config) for easy multi-environment configuration
 
 
 ## API Documentation and Test Utility
@@ -40,3 +43,21 @@ server.js initializes the swaggerRouter middleware with controllers directory se
 ```
 
 See [swagger-tools Middleware] (https://github.com/apigee-127/swagger-tools/blob/master/docs/Middleware.md) docs for more info.
+
+## Useful Commands
+
+```
+# install modules
+npm install
+
+# run tests (mocha, eslint, istanbul)
+npm test
+npm run lint
+npm run coverage
+
+# manage process (these issue common pm2 commands)
+npm start
+npm stop
+npm run reload
+npm run status
+```
