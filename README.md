@@ -1,3 +1,7 @@
+[![Build Status](https://img.shields.io/travis/niahmiah/rest-service-boilerplate.svg?branch=master&style=flat-square)](https://travis-ci.org/niahmiah/rest-service-boilerplate)
+[![Coverage Status](https://img.shields.io/coveralls/niahmiah/rest-service-boilerplate.svg?style=flat-square)](https://coveralls.io/r/niahmiah/rest-service-boilerplate)
+
+
 # REST Service Boilerplate
 
 A boilerplate project for scalable REST Services using Node.js, Express, Mongoose, PM2, and Swagger
