@@ -1,23 +1,20 @@
 'use strict';
 
-var config = require('config');
-var PORT = config.get('server.port');
-var HOSTNAME = config.get('server.hostname');
 var server = require('./server');
 
-var log = require('./lib/logger');
-
 server.start(function startCb(err){
-  if(err) { log.error(err.message, err.stack); }
-  log.info('Service started on ' + PORT);
-  log.info('API Documentation available at http://' + HOSTNAME + ':' + PORT + '/docs');
+  if(err) {
+    process.exit(1);
+  }
 });
 
 // PM2 sends IPC message for graceful shutdown
-process.on('message', function ipcMsgCb(msg) {
+process.on('message', function msgCb(msg) {
   if (msg === 'shutdown') {
-    server.stop(function shutdownCb(){
-      log.info('Service stopped.');
-    });
+    server.stop();
   }
 });
+
+// Ctrl+c or kill $pid
+process.on('SIGINT', server.stop);
+process.on('SIGTERM', server.stop);
