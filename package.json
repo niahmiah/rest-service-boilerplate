@@ -30,11 +30,11 @@
   },
   "homepage": "https://github.com/niahmiah/rest-service-boilerplate",
   "devDependencies": {
-    "chai": "^3.2.0",
-    "coveralls": "^2.11.3",
-    "eslint": "^1.0.0",
-    "istanbul": "^0.3.17",
-    "mocha": "^2.2.5",
+    "chai": "^4.1.2",
+    "coveralls": "^3.0.0",
+    "eslint": "^4.8.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^4.0.0",
     "restler": "^3.3.0"
   },
   "dependencies": {
@@ -42,10 +42,10 @@
     "config": "^1.15.0",
     "express": "^4.13.2",
     "mongoose": "^4.1.0",
-    "pm2": "^0.14.6",
-    "swagger-tools": "^0.9.0",
+    "pm2": "^2.7.1",
+    "swagger-tools": "^0.10.1",
     "swagger2mongoose": "^1.1.0",
-    "winston": "^1.0.1"
+    "winston": "^2.4.0"
   },
   "engine": "node >= 0.12.1"
 }
