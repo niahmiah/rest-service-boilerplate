@@ -4,6 +4,8 @@
 
 # REST Service Boilerplate
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/niahmiah/rest-service-boilerplate.svg)](https://greenkeeper.io/)
+
 A boilerplate project for scalable REST Services using Node.js, Express, Mongoose, PM2, and Swagger
 
 ## Inspiration
