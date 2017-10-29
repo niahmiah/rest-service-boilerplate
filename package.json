@@ -43,7 +43,7 @@
     "express": "^4.13.2",
     "mongoose": "^4.1.0",
     "pm2": "^0.14.6",
-    "swagger-tools": "^0.9.0",
+    "swagger-tools": "^0.10.2",
     "swagger2mongoose": "^1.1.0",
     "winston": "^1.0.1"
   },
